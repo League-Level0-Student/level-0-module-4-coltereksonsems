@@ -1,5 +1,7 @@
 package _02_boolean._1_sleepy_head;
 
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 import org.jointheleague.graphical.robot.Robot;
 
@@ -41,37 +43,53 @@ public class SleepyHead {
 		// This code will repeat until gameIsOver is changed to true
 		while (!gameIsOver) {
 			// Ask the user if the game is over. 
-			String gameOver = JOptionPane.showInputDialog("is game over");
+			String gameOver = JOptionPane.showInputDialog("is the game over?");
 			if (gameOver.equalsIgnoreCase("yes"))
 				gameIsOver = true;
 			
 			// If they answer "yes", change gameIsOver to true
 
-		}
+		}JOptionPane.showMessageDialog(null,"The game is over.");
 		// Tell the user "game is over" 
 		
 		
 		/***********************   RED SQUARE  ********************/
 		
-		boolean isRed;
+		boolean isRed = false;
 		// Ask the user what color to draw with. Based on their answer, set the isRed variable
-		
-		
-		boolean isSquare;		
+		String color= JOptionPane.showInputDialog("What color show I draw With?");
+		if (color.equals("red")) {
+			isRed=true;
+		}
+		boolean isSquare = false;	
 		// Now ask the user what shape to draw. Based on their answer, set the isSquare variable
-		
+		String shape=JOptionPane.showInputDialog("What shape should i use?");
+		if (shape.equals("square")) {
+			isSquare=true;
+		}
 		
 		// Now you MUST use the && operator to join the booleans for this code. 
 		// Ask your teacher if you are not sure how
 		// Use an if statement to ONLY draw a red square when it has been requested (use the method below)
 		// otherwise, tell the user you don't know how to draw that shape
-		
-
+		if (isRed&&isSquare) {
+			drawRedSquare();
+		}
+		else JOptionPane.showMessageDialog(null,"I don't know how to draw that!");
 	}
 
 	
 	static void drawRedSquare() {
 		Robot rob = new Robot();
+		rob.penDown();
+		rob.setPenColor(Color.red);
+for (int i = 0; i < 4; i++) {
+	
+	
+		rob.move(50);
+		rob.turn(90);
+}
+		
 		// Complete the rest of this method
 	}	
 }
